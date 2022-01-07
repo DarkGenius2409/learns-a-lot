@@ -1,55 +1,56 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
+    <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+        <h1 class="display-2">Sir Learns-a-lot</h1>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
+      <v-btn @click="signIn()" target="_blank" text>
+        <span class="mr-2">{{ !signedIn ? "Sign In" : "Sign Out" }}</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import firebase from "./firebase";
+import { signInWithPopup, signOut } from "firebase/auth";
 
 export default {
-  name: 'App',
+  name: "App",
 
   data: () => ({
-    //
+    signedIn: false,
   }),
+  methods: {
+    signIn: function () {
+      if (!this.signedIn) {
+        signInWithPopup(firebase.auth, firebase.provider)
+          .then((result) => {
+            this.signedIn = !this.signedIn;
+            this.$router.push({ name: "lesson-select" });
+          })
+          .catch((error) => {
+            console.error("Error Signing In", error.message);
+          });
+      } else {
+        signOut(firebase.auth)
+          .then((result) => {
+            this.signedIn = !this.signedIn;
+            this.$router.push({ name: "Home" });
+          })
+          .catch((error) => {
+            console.error("Error Signing Out", error.message);
+          });
+      }
+    },
+  },
 };
 </script>
