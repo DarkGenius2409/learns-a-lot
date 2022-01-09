@@ -1,19 +1,9 @@
-# learns-a-lot
+# Learns-a-Lot
 
-## Project setup
-```
-yarn install
-```
+## Description
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+This is part of a project made for the 2022 Forsyth County Tech Fair.
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Purpose
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+It is a website that has bite-sized lessons for you to consume on the go, with links to further resources if you're interested in the topic. Each lesson has a high-quality video and a 5 question quiz after it.
