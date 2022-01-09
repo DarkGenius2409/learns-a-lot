@@ -75,4 +75,9 @@ export default {
 .link {
   text-decoration: none;
 }
+
+.signedOut {
+  text-align: center;
+  margin-top: 20%;
+}
 </style>

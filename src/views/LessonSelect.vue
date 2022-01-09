@@ -132,11 +132,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.signedOut {
-  text-align: center;
-  margin-top: 20%;
-}
-
 .listTitle {
   color: white;
 }
