@@ -7,6 +7,18 @@
 
       <v-spacer></v-spacer>
 
+      <router-link :to="{ name: 'Home' }">
+        <v-btn target="_blank" text>
+          <span class="mr-2">Home</span>
+        </v-btn>
+      </router-link>
+
+      <router-link :to="{ name: 'lesson-select' }">
+        <v-btn target="_blank" text>
+          <span class="mr-2">Browse</span>
+        </v-btn>
+      </router-link>
+
       <v-btn @click="signIn()" target="_blank" text>
         <span class="mr-2">{{ !signedIn ? "Sign In" : "Sign Out" }}</span>
         <v-icon>mdi-open-in-new</v-icon>
@@ -54,3 +66,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.heading {
+  margin: 10px 0px 5px 50px;
+}
+
+.link {
+  text-decoration: none;
+}
+</style>
