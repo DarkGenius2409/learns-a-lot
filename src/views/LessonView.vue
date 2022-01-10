@@ -7,7 +7,7 @@
         <LessonVideo :url="lessonData.data.url" v-on:go-to-quiz="goToQuiz" />
       </div>
       <div class="container content" v-if="accessQuiz">
-        <LessonQuiz :url="lessonData.data.quiz" />
+        <LessonQuiz :quiz="lessonData.data.quiz" />
       </div>
     </div>
     <div v-else class="signedOut">
@@ -53,5 +53,9 @@ export default {
 <style scoped lang="scss">
 .content {
   text-align: center;
+}
+
+.heading {
+  margin-bottom: 15px;
 }
 </style>

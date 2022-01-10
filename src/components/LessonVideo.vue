@@ -13,7 +13,7 @@
       ></iframe>
     </v-row>
     <v-row class="next">
-      <v-btn class="btn" @click="goToQuiz" outlined color="secondary" x-large
+      <v-btn class="btn" @click="goToQuiz" outlined color="secondary" large
         >Go to Quiz</v-btn
       >
     </v-row>
@@ -34,16 +34,13 @@ export default {
 
 <style lang="scss" scoped>
 .next {
-  text-align: right;
-  justify-content: right;
+  text-align: center;
+  justify-content: center;
 }
 
 .video {
   text-align: center;
   justify-content: center;
-  padding: 25px;
-}
-.btn {
-  margin-right: 15rem;
+  padding: 25px 0px 15px 0px;
 }
 </style>

@@ -135,4 +135,8 @@ export default {
 .listTitle {
   color: white;
 }
+
+.lessonList {
+  margin-top: 1.5rem;
+}
 </style>

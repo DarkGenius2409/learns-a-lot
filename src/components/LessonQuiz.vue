@@ -1,7 +1,10 @@
 <template>
   <div class="container">
-    <!-- <QuizQuestion :question="quiz[0]" v-on:next-question="nextQuestion" /> -->
-    {{ quiz }}
+    <QuizQuestion
+      :question="quiz[question]"
+      :next="next"
+      @next-question="nextQuestion"
+    />
   </div>
 </template>
 
@@ -15,11 +18,29 @@ export default {
   data: () => {
     return {
       question: 0,
+      next: "Next Question",
+      correct: 0,
     };
   },
   methods: {
-    nextQuestion: function () {
-      question++;
+    nextQuestion: function (e) {
+      if (this.question < this.quiz.length) {
+        if (e) {
+          this.correct++;
+        }
+        if (this.question + 1 == this.quiz.length - 1) {
+          this.next = "Submit";
+          this.question++;
+        } else if (this.question + 1 == this.quiz.length) {
+          const percentCorrect = (this.correct / this.quiz.length) * 100;
+          this.$router.push({
+            name: "results",
+            params: { percent: percentCorrect },
+          });
+        } else {
+          this.question++;
+        }
+      }
     },
   },
 };
