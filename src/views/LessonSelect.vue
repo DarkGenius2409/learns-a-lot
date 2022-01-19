@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="signedIn">
+    <SignIn>
       <h1 class="display-4 heading">Browse</h1>
       <hr />
       <v-list class="lessonList">
@@ -42,11 +42,7 @@
           <!-- Subcategory End -->
         </v-list-group>
       </v-list>
-    </div>
-    <div v-else class="signedOut">
-      <h1 class="display-4">Looks like you haven't signed in yet😅</h1>
-      <p class="title">Please sign in to access this content!</p>
-    </div>
+    </SignIn>
   </div>
 </template>
 
@@ -54,9 +50,11 @@
 import firebase from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import uniqid from "uniqid";
+import SignIn from "../components/SignIn";
 
 export default {
   name: "LessonSelect",
+  components: { SignIn },
   data() {
     return {
       categories: [],

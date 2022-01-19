@@ -29,7 +29,7 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/LessonSelect.vue"),
   },
   {
-    path: "/results/:percent",
+    path: "/results/:id/:percent",
     name: "results",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

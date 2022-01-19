@@ -25,7 +25,7 @@ export default {
   methods: {
     nextQuestion: function (e) {
       if (this.question < this.quiz.length) {
-        if (e) {
+        if (e == true) {
           this.correct++;
         }
         if (this.question + 1 == this.quiz.length - 1) {

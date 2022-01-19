@@ -37,19 +37,15 @@ export default {
       correct: false,
     };
   },
+  mounted() {
+    this.correct = false;
+  },
   methods: {
     nextQuestion: function () {
-      if (this.correct) {
-        this.$emit("next-question", true);
-      } else {
-        this.$emit("next-question", false);
-      }
+      this.$emit("next-question", this.correct);
     },
     onChange: function (e) {
-      console.log(e);
-      if (this.question.choices[e] == this.question.answer) {
-        this.correct = true;
-      }
+      this.correct = this.question.choices[e] == this.question.answer;
     },
   },
 };

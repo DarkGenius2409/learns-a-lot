@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="signedIn">
+    <SignIn>
       <h1 class="display-4 heading">{{ lessonData.data.title }}</h1>
       <hr />
       <div class="container content" v-if="!accessQuiz">
@@ -9,11 +9,7 @@
       <div class="container content" v-if="accessQuiz">
         <LessonQuiz :quiz="lessonData.data.quiz" />
       </div>
-    </div>
-    <div v-else class="signedOut">
-      <h1 class="display-4">Looks like you haven't signed in yet😅</h1>
-      <p class="title">Please sign in to access this content!</p>
-    </div>
+    </SignIn>
   </div>
 </template>
 
@@ -22,21 +18,18 @@ import firebase from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import LessonVideo from "../components/LessonVideo";
 import LessonQuiz from "../components/LessonQuiz";
+import SignIn from "../components/SignIn";
 
 export default {
   name: "LessonView",
-  components: { LessonVideo, LessonQuiz },
+  components: { LessonVideo, LessonQuiz, SignIn },
   data: () => {
     return {
       accessQuiz: false,
       lessonData: {},
-      signedIn: false,
     };
   },
   async mounted() {
-    if (firebase.auth.currentUser) {
-      this.signedIn = true;
-    }
     const lessonRef = doc(firebase.db, "lessons", this.$route.params.id);
     const querySnapshot = await getDoc(lessonRef);
     const lesson = { id: querySnapshot.id, data: querySnapshot.data() };
