@@ -2,7 +2,9 @@
   <v-app>
     <v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
-        <h1 class="display-2">Sir Learns-a-lot</h1>
+        <h1 class="display-2">
+          <i class="brand secondary--text">Sir Learns-a-lot</i>
+        </h1>
       </div>
 
       <v-spacer></v-spacer>
@@ -76,11 +78,25 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Leckerli+One&family=Raleway:wght@200&display=swap");
+
+.v-application {
+  font-family: "Raleway", sans-serif !important;
+}
+
 .heading {
   margin: 10px 0px 5px 50px;
 }
 
 .link {
   text-decoration: none;
+}
+
+.brand {
+  font-family: "Leckerli One", cursive;
+}
+
+.container {
+  font-family: "Raleway", sans-serif !important;
 }
 </style>

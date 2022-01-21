@@ -50,5 +50,6 @@ export default {
 
 .heading {
   margin-bottom: 15px;
+  font-family: "Raleway", sans-serif !important;
 }
 </style>

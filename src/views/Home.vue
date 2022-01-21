@@ -3,7 +3,7 @@
     <div class="container intro">
       <h1 class="welcome">
         Welcome to <br />
-        <strong>Sir Learns-a-Lot</strong>
+        <strong class="brand secondary--text">Sir Learns-a-Lot</strong>
       </h1>
       <p class="title">The next-gen learning platform for people on the go.</p>
     </div>
@@ -87,9 +87,12 @@ body {
 
 .display-2 {
   margin: 1.5rem;
+  font-family: "Raleway", sans-serif !important;
+  font-weight: 200;
 }
-.display-3 {
-  margin: 1.5rem;
+.title {
+  font-family: "Raleway", sans-serif !important;
+  font-weight: 200;
 }
 
 .welcome {
@@ -97,5 +100,9 @@ body {
   font-weight: 100;
   letter-spacing: -0.015625em;
   line-height: 1;
+}
+
+.brand {
+  font-family: "Leckerli One", cursive;
 }
 </style>

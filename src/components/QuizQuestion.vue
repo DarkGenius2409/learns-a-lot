@@ -2,7 +2,7 @@
   <v-container class="container questionContainer" fluid>
     <v-card dark class="question mx-auto">
       <v-card-title class="text-h5" color="primary">
-        {{ question.question }}
+        <span class="questionTitle">{{ question.question }}</span>
       </v-card-title>
       <v-card-subtitle>
         <v-container class="px-0" fluid>
@@ -65,5 +65,9 @@ export default {
 .questionContainer {
   justify-content: center;
   text-align: center;
+}
+
+.questionTitle {
+  font-family: "Raleway", sans-serif !important;
 }
 </style>

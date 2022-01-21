@@ -16,7 +16,7 @@
               v-for="(link, i) in furtherLinks"
               :key="i"
               :href="link"
-              class="title mx-3"
+              class="title mx-3 heading"
               target="_blank"
             >
               {{ furtherLinkNames[i] }}
@@ -32,8 +32,6 @@
 import firebase from "../firebase";
 import { getDoc, doc } from "firebase/firestore";
 import SignIn from "../components/SignIn";
-import request from "request";
-import cheerio from "cheerio";
 
 export default {
   name: "LessonResults",
@@ -67,5 +65,14 @@ export default {
 
 .furtherLinks {
   margin-top: 2rem;
+  font-family: "Raleway", sans-serif !important;
+}
+
+.heading {
+  font-family: "Raleway", sans-serif !important;
+}
+
+.display-1 {
+  font-family: "Raleway", sans-serif !important;
 }
 </style>
