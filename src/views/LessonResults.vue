@@ -23,6 +23,11 @@
             </a>
           </v-row>
         </v-col>
+        <router-link class="link" to="/browse">
+          <v-btn color="secondary" elevation="1" large outlined
+            >Back to Browse</v-btn
+          >
+        </router-link>
       </div>
     </SignIn>
   </div>
